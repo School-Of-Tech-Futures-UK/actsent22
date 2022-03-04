@@ -92,6 +92,7 @@ class InfrastructureStack extends cdk.Stack {
           ),
           allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
           cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
+          responseHeadersPolicy: cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS
         }
       },
       priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
