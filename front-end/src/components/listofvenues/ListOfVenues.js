@@ -12,7 +12,7 @@ async function fetchVenues(){
     return data
 }
 
-const ListOfVenues = (props) =>{
+const ListOfVenues =(props) =>{
 
     const [listState, setListState] = useState([])
 
