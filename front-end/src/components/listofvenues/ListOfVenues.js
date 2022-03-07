@@ -32,13 +32,18 @@ const  ListOfVenues = (props) =>{
 
     return (
         <>
+        <div class="venuesWrapper">
             {
                 filtered_venues.map(venue => {
-                    return <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
+                    return         <div class="flexWrapper">
+                    <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
                             location= {venue.venue_address} description= {venue.venue_description} image= {venue.venue_image}/>
+                        </div>
                 })
             }
+            </div>
         </>
+
     )
 }
 

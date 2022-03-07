@@ -1,5 +1,8 @@
 import * as React from 'react'
 import './App.css';
+import './custom.css'
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
@@ -60,6 +63,7 @@ const NavBar = () => {
           <a class="navbar-brand" href="/"><b> ActSent </b>| Part of GigStr</a>
           <NavLink class="navbar-brand" to="/venues"> Venues </NavLink>
           <NavLink class="navbar-brand" to="/events"> Events </NavLink>
+         
         </div>
       </nav>
     </>
