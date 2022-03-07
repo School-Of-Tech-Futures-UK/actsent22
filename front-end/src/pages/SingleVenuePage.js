@@ -102,7 +102,7 @@ const SingleVenuePage = () =>{
                 <>
                     <img src={venueState.venue_image} alt={""}/>
                     <h2> {venueState.venue_name} </h2>
-                    <h4> {venueState.venue_geolocation}</h4>
+                    <h4> {venueState.venue_address}</h4>
                     <h4> {venueState.venue_description} </h4>
 
                     <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>

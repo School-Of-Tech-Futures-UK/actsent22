@@ -35,7 +35,7 @@ const  ListOfVenues = (props) =>{
             {
                 filtered_venues.map(venue => {
                     return <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
-                            location= {venue.venue_address} description= {venue.venue_description} image= {venue.venue_image} locationCity={location}/>
+                            location= {venue.venue_address} description= {venue.venue_description} image= {venue.venue_image}/>
                 })
             }
         </>
