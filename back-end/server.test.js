@@ -7,7 +7,7 @@ jest.mock('pg-promise', () => () => () => ({
   query: (...args) => mockQuery(...args)
 }))
 
-describe    ('POST /api/create_event', () => {
+describe('POST /api/create_event', () => {
   it('creates an event', async () => {
     const testEvent = {
       artistName: 'Mozart',
@@ -20,7 +20,6 @@ describe    ('POST /api/create_event', () => {
       status: 'pending',
       eventImage: 'https://picsum.photos/id/1025/4951/3301'
     }
-    
 
     const response = await request(app)
       .post('/api/create_event')
@@ -36,18 +35,17 @@ describe    ('POST /api/create_event', () => {
   })
 })
 
-describe('get events test', ()=>{
-  
-  it('returns correct fields', async ()=>{
-    const response = await request(app)
-    .get('/api/events')
-  
-    expect(response.headers["content-type"]).toMatch(/json/)
-  expect(Object.keys(response.body[0])).
-  toEqual(['venue_id', 'event_id', 'date', 
-  'event_name', 'event_description', 'event_image', 
-  'artist_name', 'artist_email', 'genre', 'status', 
-  'venue_name', 'venue_geolocation', 'venue_address'
-  ])})
-  
-  })
+// describe('get events test', () => {
+//   it('returns correct fields', async () => {
+//     const response = await request(app)
+//       .get('/api/events')
+
+//     expect(response.headers["content-type"]).toMatch(/json/)
+//     expect(Object.keys(response.body[0])).
+//       toEqual(['venue_id', 'event_id', 'date',
+//         'event_name', 'event_description', 'event_image',
+//         'artist_name', 'artist_email', 'genre', 'status',
+//         'venue_name', 'venue_geolocation', 'venue_address'
+//       ])
+//   })
+// })
