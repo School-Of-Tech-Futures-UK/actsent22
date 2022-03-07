@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom'
-import {useState} from 'react'
 import FilterForm from '../components/filterForm/filterForm'
+import Footer from '../components/footer'
 
-
-const SplashPage= () => {
-    const history= useHistory()
+const SplashPage = () => {
+    const history = useHistory()
     const allvenues = () => {
         history.push(`/venues`)
     }
@@ -14,16 +13,23 @@ const SplashPage= () => {
         history.push(`/venues/location${location}`)
     }
 
-    return(
-        <div>
-        <h1>
-            Welcome to ActSent
-        </h1>
-        <h2>Get started below</h2>
-        <button onClick={allvenues}>View all Venues</button>
+    return (
+        <>
+            <div class="heroHeader">
+                <img id="heroImage" src="./Assets/images/actsentlogo.png" alt="..." />
+                <br />
+                <br />
+                <p id="heroSubtitle"> Find the perfect venue for your events</p>
+            </div>
+            <div>
+                <button onClick={allvenues}>View all Venues</button>
+                <FilterForm onFilter={onFilter}></FilterForm>
+            </div>
+            <Footer></Footer>
+        </>
 
-        <FilterForm onFilter={onFilter}></FilterForm>
-        </div>
+
+
     )
 }
 export default SplashPage
