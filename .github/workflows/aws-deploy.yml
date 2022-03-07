@@ -1,0 +1,54 @@
+name: Deploy to AWS
+on:
+  push:
+    branches:
+      - main
+    logLevel:
+      description: 'Log level'     
+      required: true
+      debug: 'warning'
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
+      AWS_REGION: eu-west-2
+      CI: false
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Node modules installation
+        working-directory: ./front-end
+        run: npm ci
+
+      - name: Build Frontend
+        working-directory: ./front-end
+        run: npm run build
+
+      
+
+      - name: Install Lambda dependencies
+        working-directory: ./back-end
+        run: npm ci
+   
+
+      - name: Install CDK and dependencies
+        working-directory: ./infrastructure
+        run: npm ci
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT }}:role/GitHubActions
+          aws-region: ${{ env.AWS_REGION }}
+          
+      - name: CDK deploy
+        working-directory: ./infrastructure
+        run: npx cdk deploy --require-approval never

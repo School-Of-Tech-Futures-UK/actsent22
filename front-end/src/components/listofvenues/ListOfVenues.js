@@ -1,29 +1,20 @@
 import VenueListItem from '../venuelistitem/VenueListItem'
 import { useEffect, useState} from 'react'
 import { useParams} from "react-router-dom"
+import fetchVenues from "./fetchVenues"
 
-
-async function fetchVenues(){
-   
-    const res = await fetch('http://localhost:3003/venue_info')
-    //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
-    const data = await res.json()
-    console.log(data)
-    return data
-}
-
-const  ListOfVenues = (props) =>{
+const ListOfVenues =(props) =>{
 
     const [listState, setListState] = useState([])
 
-    const { location} = useParams()
+    const {location} = useParams()
 
     useEffect(() => {
         fetchVenues().then(setListState)
     }, [])
 
     let filtered_venues = listState
-
+    console.log("location is, ", location)
     if (location) {
         filtered_venues = listState.filter(venue => {
             return venue.venue_address.includes(location)

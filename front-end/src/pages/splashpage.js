@@ -16,6 +16,15 @@ const SplashPage= () => {
     }
 
     return(
+<<<<<<< HEAD
+=======
+        <div>
+        <h1>
+            Welcome to ActSent
+        </h1>
+        <h2>Get started below</h2>
+        <button onClick={allvenues}>View all Venues</button>
+>>>>>>> 322a3de9468990335830bc698089cb5120fae984
 
         <>
         <div class="heroHeader">

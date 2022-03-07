@@ -9,7 +9,7 @@ const SingleEventItem = (props) =>{
             <div className="row no-gutters">
 
                 <div className="col-md-4">
-                    <img src={props.event.image} className="card-img" alt="..."/>
+                    <img src={props.event.event_image} className="card-img" alt="..."/>
                 </div>
 
                 <div className="col-md-8">
@@ -18,7 +18,7 @@ const SingleEventItem = (props) =>{
                         <h5 className="card-title"> {props.event.status} </h5>
 
                         <p className="card-text">
-                            {props.event.venue_geolocation}<br/>
+                            {props.event.venue_address}<br/>
                             {props.event.date}<br/>
                             {props.event.genre}<br/>
                             {props.event.event_description}<br/>

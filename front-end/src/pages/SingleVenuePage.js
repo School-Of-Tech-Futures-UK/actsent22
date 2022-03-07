@@ -7,7 +7,7 @@ import BookingForm from '../components/bookingForm/BookingForm'
 
 async function fetchVenue(id){
     console.log("welcome to venue")
-    const res = await fetch('http://localhost:3003/venue_info')
+    const res = await fetch('https://venues.sotf2022-01.com/api/venue_info')
     const data = await res.json()
 
     // WE ONLY RETURN THE VENUE WHOSE ID MATCHES id
@@ -57,7 +57,7 @@ const SingleVenuePage = () =>{
     //const status=req.body.status
 
     async function sendBookingRequest (newBookingRequest) {
-        const response = await fetch('http://localhost:3002/create_event', {
+        const response = await fetch('https://events.sotf2022-01.com/api/create_event', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
