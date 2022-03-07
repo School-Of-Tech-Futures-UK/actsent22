@@ -17,5 +17,6 @@ it("Should render a venue's information - Lucy's Lounge", () => {
     screen.getByRole("img");
     const button = screen.getByRole("button")
     expect(button).toHaveTextContent("View Venue")
+    
 })
 
