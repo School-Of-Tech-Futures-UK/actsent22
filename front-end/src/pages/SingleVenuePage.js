@@ -31,9 +31,10 @@ const SingleVenuePage = () =>{
 
     const [venueState, setVenueState] = useState('abc')
 
-    const { id } = useParams()
+    const {id, location} = useParams()
     
-    console.log(id)
+    console.log("id: ", id)
+    console.log("location: ", location)
 
     useEffect(() => {
         // WE HAVE TO parseInt THE ID TO CONVERT IT TO AN INT
@@ -102,7 +103,7 @@ const SingleVenuePage = () =>{
                 <>
                     <img src={venueState.venue_image} alt={""}/>
                     <h2> {venueState.venue_name} </h2>
-                    <h4> {venueState.venue_geolocation}</h4>
+                    <h4> {venueState.venue_address}</h4>
                     <h4> {venueState.venue_description} </h4>
 
                     <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>

@@ -23,6 +23,19 @@ const BookingForm = (props) =>{
     const [id, setId]=useState(props.id)
     const [eventImage, setEventImage] = useState('')
 
+
+  function SubmitButton(){
+    if (artistName && eventName && eventDescription && date && artistEmail && genre && status && id && eventImage){
+      return <input type='submit'  value='Request a Booking' />
+    } else {
+      return <input type='submit'  value='Request a Booking' disabled/>
+    };
+  };
+ 
+
+
+  var today = new Date().toISOString().split('T')[0];
+
     const onSubmit = (e) =>{
         // TO PREVENT THE PAGE RELOAD ON SUBMIT
         e.preventDefault()
@@ -44,42 +57,43 @@ const BookingForm = (props) =>{
     }
 
     return (
+        
        <form onSubmit={onSubmit}>
 
            <div>
                <label>Artist Name</label>
-               <input type='text' placeholder="Mozart" 
+               <input type='text'  placeholder="Mozart" 
                 value={artistName} onChange={(e)=> {setArtistName(e.target.value)}}/>
            </div>
 
            <div>
                <label>Artist email</label>
-               <input type='text' placeholder="mozart@gmail.com" 
+               <input type='text'  placeholder="mozart@gmail.com" 
                 value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}/>
            </div>
 
            <div>
                <label>Event Name</label>
-               <input type='text' placeholder="Amadeus" 
+               <input type='text'  placeholder="Amadeus" 
                 value={eventName} onChange={(e)=> {setEventName(e.target.value)}}/>
            </div>
 
            <div>
                <label>Date</label>
                <input type='date'
-               value={date} onChange={(e)=> {setDate(e.target.value)}}/>
+               value={date} min={today} onChange={(e)=> {setDate(e.target.value)}}/>
            </div>
            
            <div>
                <label>Event Description</label>
                <input type='text' placeholder="great"
-               value={eventDescription} onChange={(e)=> {setEventDescription(e.target.value)}} size='10'
+               value={eventDescription}  onChange={(e)=> {setEventDescription(e.target.value)}} size='10'
                />
            </div>
 
            <div>
                <label for='genre'>Genre</label>
-               <select id = 'genre' value={genre} onChange={(e)=> {setGenre(e.target.value)}}>
+               <select id = 'genre' value={genre}  onChange={(e)=> {setGenre(e.target.value)}}>
                 <option value="">--Please select a genre--</option>
                 <option value="hiphop">Hip Hop</option>
                 <option value="rock">Rock</option>
@@ -96,10 +110,24 @@ const BookingForm = (props) =>{
                value={eventImage} onChange={(e)=> {setEventImage(e.target.value)}}/>
            </div>
 
-           <input type='submit' value='Request a Booking' />
+           <SubmitButton></SubmitButton>
 
        </form>
+
+
+       
     )
+
+
 }
+
+
+
+
+
+
+
+
+
 
 export default BookingForm

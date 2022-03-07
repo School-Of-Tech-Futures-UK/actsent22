@@ -1,5 +1,8 @@
 import * as React from 'react'
 import './App.css';
+import './custom.css'
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
@@ -28,12 +31,12 @@ const Routes = () => (
       <ListOfVenues />
     </Route>
 
-    <Route exact path={`/venues/:id`}>
-      <SingleVenuePage />
-    </Route>
-
     <Route exact path={`/venues/location:location`}>
       <ListOfVenues />
+    </Route>
+
+    <Route exact path={`/venues/:id`}>
+      <SingleVenuePage />
     </Route>
 
     <Route exact path={`/events`}>
@@ -48,7 +51,6 @@ const Routes = () => (
 );
 
 
-
 const NavBar = () => {
   // For illustration
   const { pathname } = useLocation();
@@ -61,6 +63,7 @@ const NavBar = () => {
           <a class="navbar-brand" href="/"><b> ActSent </b>| Part of GigStr</a>
           <NavLink class="navbar-brand" to="/venues"> Venues </NavLink>
           <NavLink class="navbar-brand" to="/events"> Events </NavLink>
+         
         </div>
       </nav>
     </>

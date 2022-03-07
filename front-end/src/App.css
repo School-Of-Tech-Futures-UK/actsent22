@@ -36,3 +36,167 @@
     transform: rotate(360deg);
   }
 }
+
+.cardWrapper {
+  padding: 20px;
+  flex-grow:1;
+  flex-shrink: 1;
+}
+
+.eventWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  height:475px;
+}
+
+.mainDetails {
+  background-color: #FFEB32;
+}
+
+/* .btn-primary{
+  margin-top:20px;
+  border-radius: 12px;
+  background-color: #FF7800;
+  border: 0px;
+} */
+
+.eventFlex{
+  padding-top: min(6vw, 150px);
+  padding-left: min(10vw, 150px);
+  padding-right: min(10vw, 150px);
+}
+
+.eventCardFlex{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+#childFlex{
+  flex-grow: 2;
+  flex-shrink: 2;
+  padding: 10px;
+}
+
+#mapFlex{
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 10px;
+}
+
+.eventDetailsFlex{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.eventButtonsFlex{
+  display:flex;
+  flex-wrap: wrap;
+  padding-top: min(1vw,5px);
+  padding-bottom: min(1vw,5px);
+}
+
+#eventButtonFlex{
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+  margin-right: 1vw;
+}
+
+#eventHeader{
+    position: relative;
+    margin-bottom:20px;
+    border-radius: 30px;
+}
+
+#eventImage{
+    position: relative;
+    border-radius: 30px;
+}
+
+#eventReview{
+  position: absolute;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  bottom: 0;
+  right: 0;
+}
+
+#eventTitle{
+  color: white;
+  font-size: min(7vw, 40px);
+  font-weight: 900;
+  position: absolute;
+  padding-left: min(5vw,30px);
+  bottom: 0;
+  left: 0;
+}
+
+.checked {
+  color: orange;
+}
+
+.roundedImage{
+  position: relative;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.heroHeader{
+  background-image: url("../public/Assets/images/wave.png");
+  background-position: center;
+  z-index:-1;
+  object-fit: cover;
+  background-color: black;
+  color: white;
+  padding: 3vw;
+  padding-left:5vw;
+  padding-top:5vw;
+}
+
+#heroSubtitle{
+  color: #FFEB32;
+  font-size: min(5vw, 40px);
+  font-family: "Graphik-Semibold";
+}
+
+#heroImage{
+  height:min(10vw,300px);
+}
+
+.searchWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchChildWrapper{
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top:1vw;
+}
+
+#searchBar{
+  border-radius: 15px;
+}
+
+#cardFlex{
+  position:relative;
+}
+
+#seeMore{
+  position:absolute;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  bottom: 0;
+  left: 0
+}
