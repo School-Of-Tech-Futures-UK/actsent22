@@ -33,4 +33,3 @@ describe('POST /api/create_event', () => {
     expect(response.text).toEqual('Event creation successful')
   })
 })
-
