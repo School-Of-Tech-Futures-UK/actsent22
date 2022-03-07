@@ -1,16 +1,7 @@
 import VenueListItem from '../venuelistitem/VenueListItem'
 import { useEffect, useState} from 'react'
 import { useParams} from "react-router-dom"
-
-
-async function fetchVenues(){
-   
-    const res = await fetch('https://venues.sotf2022-01.com/api/venue_info')
-    //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
-    const data = await res.json()
-    console.log(data)
-    return data
-}
+import fetchVenues from "./fetchVenues"
 
 const ListOfVenues =(props) =>{
 
