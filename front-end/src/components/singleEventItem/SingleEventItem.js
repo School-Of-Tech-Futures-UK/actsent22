@@ -18,7 +18,7 @@ const SingleEventItem = (props) =>{
                         <h5 className="card-title"> {props.event.status} </h5>
 
                         <p className="card-text">
-                            {props.event.venue_geolocation}<br/>
+                            {props.event.venue_address}<br/>
                             {props.event.date}<br/>
                             {props.event.genre}<br/>
                             {props.event.event_description}<br/>
