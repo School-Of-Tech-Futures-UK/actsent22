@@ -5,6 +5,7 @@ import ListOfVenues from "./ListOfVenues"
 import VenueListItem from "../venuelistitem/VenueListItem"
 import { render, screen } from "@testing-library/react"
 import {useLocation} from 'react-router';
+import routeData from 'react-router';
 
 const loc = useLocation()
 
@@ -51,7 +52,6 @@ it("should render a list of venues in Manchester", () => {
       //   useRouteMatch: () => ({ url: '/venues/locationManchester' }),
       // }));
 
-      import routeData from 'react-router';
 
       const mockLocation = {
         pathname: '/venues/locationManchester',
