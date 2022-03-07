@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint . --ext .js",
     "start": "node server.js"
   },
   "author": "",
