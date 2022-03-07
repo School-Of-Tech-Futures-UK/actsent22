@@ -9,7 +9,7 @@ const SingleEventItem = (props) =>{
             <div className="row no-gutters">
 
                 <div className="col-md-4">
-                    <img src={props.event.image} className="card-img" alt="..."/>
+                    <img src={props.event.event_image} className="card-img" alt="..."/>
                 </div>
 
                 <div className="col-md-8">
