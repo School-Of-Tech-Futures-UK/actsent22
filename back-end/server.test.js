@@ -13,7 +13,8 @@ describe('GET /venue', function() {
     toBe(['venue_id', 'event_id', 'date', 
     'event_name', 'event_description', 'event_image', 
     'artist_name', 'artist_email', 'genre', 'status', 
-    'venue_name', 'venue_geolocation', 'venue_address'])
+    'venue_name', 'venue_geolocation', 'venue_address'
+  ])
     
   })
 
