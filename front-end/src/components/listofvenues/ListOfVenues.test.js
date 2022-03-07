@@ -6,13 +6,13 @@ import VenueListItem from "../venuelistitem/VenueListItem"
 import { render, screen } from "@testing-library/react"
 
 
-it("should render a list of venues - lucy's lounge and mariolas palace", () => {
+it("should render a list of venues in Manchester", () => {
     
     
     let data = [
         {
           name: 'Arena 1',
-          location: 'London',
+          location: 'Manchester',
           image: 'https://picsum.photos/id/101/200/200',
           description: 'The first arena'
         },
@@ -40,11 +40,12 @@ it("should render a list of venues - lucy's lounge and mariolas palace", () => {
       ];
       console.log("the data is "+JSON.stringify(data))
       jest.spyOn(global, 'fetch').mockResolvedValue(JSON.stringify(data));
-      render(<ListOfVenues/>)
+      render(<ListOfVenues location="Manchester"/>)
 
-      screen.getByText(/Lucy's Lounge/);
-      screen.getByText(/Luxembourg/);
-      screen.getByText(/Legends only/);
+      screen.getByText(/Arena 1/);
+      screen.getByText(/Bills Bar/);
+      screen.getByText(/Manchester/);
+      screen.getByText(/A bar belonging to bill/);
       screen.getByRole("img");
      // jest.spyOn(ListOfVenues, 'fetchVenues').mockResolvedValue({ json: jest.fn().mockResolvedValue({ data }) });
     
