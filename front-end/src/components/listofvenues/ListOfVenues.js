@@ -5,7 +5,7 @@ import { useParams} from "react-router-dom"
 
 async function fetchVenues(){
    
-    const res = await fetch('http://localhost:3003/venue_info')
+    const res = await fetch('https://venues.sotf2022-01.com/api/venue_info')
     //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
     console.log(data)
