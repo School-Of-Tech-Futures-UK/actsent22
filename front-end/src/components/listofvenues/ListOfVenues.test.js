@@ -1,10 +1,13 @@
-// import React from "react";
-// import { renderHook, act } from "@testing-library/react-hooks";
-// import "@testing-library/jest-dom/extend-expect";
-// import ListOfVenues from "./ListOfVenues"
-// import VenueListItem from "../venuelistitem/VenueListItem"
-// import { render, screen } from "@testing-library/react"
+import React from "react";
+import { renderHook, act } from "@testing-library/react-hooks";
+import "@testing-library/jest-dom/extend-expect";
+import ListOfVenues from "./ListOfVenues"
+import VenueListItem from "../venuelistitem/VenueListItem"
+import { render, screen } from "@testing-library/react"
 
+it ("dummy test", () => {
+  expect("hello").toBe("hello")
+})
 
 // it("should render a list of venues in Manchester", () => {
     
