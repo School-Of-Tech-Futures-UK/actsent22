@@ -16,14 +16,14 @@ const  ListOfVenues = (props) =>{
 
     const [listState, setListState] = useState([])
 
-    const { location} = useParams()
+    const {location} = useParams('')
 
     useEffect(() => {
         fetchVenues().then(setListState)
     }, [])
 
     let filtered_venues = listState
-
+    console.log("location is, ", location)
     if (location) {
         filtered_venues = listState.filter(venue => {
             return venue.venue_address.includes(location)

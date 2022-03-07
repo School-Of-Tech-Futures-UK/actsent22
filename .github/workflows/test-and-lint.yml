@@ -1,0 +1,34 @@
+name: test app
+
+on:
+  push:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: npm install front
+      run: npm install
+      working-directory: front-end
+
+    - name: test front
+      run: npm test
+      working-directory: front-end
+
+    - name: npm install back
+      run: npm install
+      working-directory: back-end
+
+    - name: test back
+      run: npm test
+      working-directory: back-end
+    
+    - name: run eslint
+      run: 'eslint . --ext .js,'
+
+    - name: run front end
+      run: 'npm run build'
+      working-directory: front-end
