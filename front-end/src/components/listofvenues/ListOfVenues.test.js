@@ -38,9 +38,20 @@ it("should render a list of venues in Manchester", () => {
           description : "Legends only"
         },
       ];
+
+
+      // TeamPage.test.js
+      jest.mock('react-router-dom', () => ({
+        ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+        useParams: () => ({
+          location: 'Manchester'
+        }),
+        useRouteMatch: () => ({ url: '/venues/locationManchester' }),
+      }));
+
       console.log("the data is "+JSON.stringify(data))
       jest.spyOn(global, 'fetch').mockResolvedValue(JSON.stringify(data));
-      render(<ListOfVenues location="Manchester"/>)
+      render(<ListOfVenues/>)
 
       screen.getByText(/Arena 1/);
       screen.getByText(/Bills Bar/);
@@ -49,4 +60,7 @@ it("should render a list of venues in Manchester", () => {
       screen.getByRole("img");
      // jest.spyOn(ListOfVenues, 'fetchVenues').mockResolvedValue({ json: jest.fn().mockResolvedValue({ data }) });
     
+
+
+
 })
