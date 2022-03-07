@@ -4,7 +4,9 @@ import "@testing-library/jest-dom/extend-expect";
 import ListOfVenues from "./ListOfVenues"
 import VenueListItem from "../venuelistitem/VenueListItem"
 import { render, screen } from "@testing-library/react"
+import {useLocation} from 'react-router';
 
+const loc = useLocation()
 
 it("should render a list of venues in Manchester", () => {
     
@@ -41,13 +43,24 @@ it("should render a list of venues in Manchester", () => {
 
 
       // TeamPage.test.js
-      jest.mock('react-router-dom', () => ({
-        ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
-        useParams: () => ({
-          location: 'Manchester'
-        }),
-        useRouteMatch: () => ({ url: '/venues/locationManchester' }),
-      }));
+      // jest.mock('react-router-dom', () => ({
+      //   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
+      //   useParams: () => ({
+      //     location: 'Manchester'
+      //   }),
+      //   useRouteMatch: () => ({ url: '/venues/locationManchester' }),
+      // }));
+
+      import routeData from 'react-router';
+
+      const mockLocation = {
+        pathname: '/venues/locationManchester',
+        hash: '',
+        search: '',
+        state: ''
+      }
+      
+      jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
 
       console.log("the data is "+JSON.stringify(data))
       jest.spyOn(global, 'fetch').mockResolvedValue(JSON.stringify(data));

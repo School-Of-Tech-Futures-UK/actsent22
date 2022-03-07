@@ -16,7 +16,7 @@ const  ListOfVenues = (props) =>{
 
     const [listState, setListState] = useState([])
 
-    const {location} = useParams('')
+    const {location} = useParams()
 
     useEffect(() => {
         fetchVenues().then(setListState)
