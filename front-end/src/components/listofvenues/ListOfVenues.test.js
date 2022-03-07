@@ -4,13 +4,9 @@ import "@testing-library/jest-dom/extend-expect";
 import ListOfVenues from "./ListOfVenues"
 import VenueListItem from "../venuelistitem/VenueListItem"
 import { render, screen } from "@testing-library/react"
-import {useLocation} from 'react-router';
-import routeData from 'react-router';
 
-const loc = useLocation()
 
 it("should render a list of venues in Manchester", () => {
-    
     
     let data = [
         {
@@ -52,16 +48,7 @@ it("should render a list of venues in Manchester", () => {
       //   useRouteMatch: () => ({ url: '/venues/locationManchester' }),
       // }));
 
-
-      const mockLocation = {
-        pathname: '/venues/locationManchester',
-        hash: '',
-        search: '',
-        state: ''
-      }
       
-      jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
-
       console.log("the data is "+JSON.stringify(data))
       jest.spyOn(global, 'fetch').mockResolvedValue(JSON.stringify(data));
       render(<ListOfVenues/>)
