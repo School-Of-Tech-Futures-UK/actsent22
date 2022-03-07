@@ -22,12 +22,13 @@ jobs:
       run: npm install
       working-directory: back-end
 
+    - name: lint back
+      run: 'npx eslint . --ext .js,'
+      working-directory: back-end
+
     - name: test back
       run: npm test
       working-directory: back-end
-    
-    - name: run eslint
-      run: 'eslint . --ext .js,'
 
     - name: run front end
       run: 'npm run build'
