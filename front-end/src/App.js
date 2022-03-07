@@ -31,12 +31,12 @@ const Routes = () => (
       <ListOfVenues />
     </Route>
 
-    <Route exact path={`/venues/:id`}>
-      <SingleVenuePage />
-    </Route>
-
     <Route exact path={`/venues/location:location`}>
       <ListOfVenues />
+    </Route>
+
+    <Route exact path={`/venues/:id`}>
+      <SingleVenuePage />
     </Route>
 
     <Route exact path={`/events`}>

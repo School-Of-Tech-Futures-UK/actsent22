@@ -4,6 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 import ListOfVenues from "./ListOfVenues"
 import VenueListItem from "../venuelistitem/VenueListItem"
 import { render, screen } from "@testing-library/react"
+import { useHistory } from "react-router-dom";
 
 it ("dummy test", () => {
   expect("hello").toBe("hello")
@@ -21,24 +22,22 @@ jest.mock('react-router-dom', () => ({
   useParams: () => ({
     location: 'Manchester'
   })
+  
 }));
+
 
 jest.mock('./fetchVenues', () => ({
   __esModule:true,
   default: async () => data
 }));
 
-it("should render a list of venues in Manchester", () => {
+it("should render a list of venues in Manchester", async () => {
     
       render(<ListOfVenues/>)
-      screen.getByText(/Arena 1/);
-      screen.getByText(/Bills Bar/);
-      screen.getByText(/Manchester/);
-      screen.getByText(/A bar belonging to bill/);
-      screen.getByRole("img");
+
+      console.log("here is screen, ")
+      await screen.findByText(/AON/);
+      // screen.getByRole("img");
      // jest.spyOn(ListOfVenues, 'fetchVenues').mockResolvedValue({ json: jest.fn().mockResolvedValue({ data }) });
-    
-
-
-
+  
 })
