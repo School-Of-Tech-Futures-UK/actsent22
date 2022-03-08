@@ -3,7 +3,7 @@ import './App.css';
 import './custom.css'
 
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
 import SingleVenuePage from './pages/SingleVenuePage';

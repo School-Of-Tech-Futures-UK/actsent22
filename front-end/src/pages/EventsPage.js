@@ -37,28 +37,31 @@ const SearchEventsForm = (props) =>{
     }
 
     return (
-            <>
-
-                <form onSubmit={onSubmit}>
-
+            <> 
+            <div class= "eventFlex">
+            <div class="eventTicketInput">
+					<form class="form-group" onSubmit={onSubmit}>
                     <div>
                         <label>Enter your email </label>
-                        <input type='text' placeholder="1" 
+                        <input type='text' class="form-control input-sm" placeholder="1" 
                         value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}
                         />
-                
                     </div>
-
-                    <input type='submit' value='Find Event' />
-
+                    <input type='submit' class="btn btn-primary" value='Find Event' />
                 </form>
+                </div>
 
+                <div class= "eventReview">
                 <EventsView event={event} />
+                </div>
+                </div>
         
-            </>
+                </>
+
     )
     
 }
+
 
 
 

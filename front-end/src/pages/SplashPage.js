@@ -22,7 +22,7 @@ const SplashPage = () => {
                 <p id="heroSubtitle"> Find the perfect venue for your events</p>
             </div>
             <div>
-                <button onClick={allvenues}>View all Venues</button>
+               
                 <FilterForm onFilter={onFilter}></FilterForm>
             </div>
             <Footer></Footer>
