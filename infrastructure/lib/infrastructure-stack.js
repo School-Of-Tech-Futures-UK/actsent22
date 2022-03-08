@@ -129,20 +129,20 @@ class InfrastructureStack extends cdk.Stack {
       recordName: `${props?.subDomain}.${props?.domainName}`,
     });
 
-    const metric = new cloudwatch.Metric({
-      namespace: 'Actsent',
-      metricName: 'eventCreationRequests',
-      period: cdk.Duration.hours(1),
-      statistic: 'sum'
-    });
+    // const metric = new cloudwatch.Metric({
+    //   namespace: 'Actsent',
+    //   metricName: 'eventCreationRequests',
+    //   period: cdk.Duration.hours(1),
+    //   statistic: 'sum'
+    // });
 
-    const filter = new logs.MetricFilter(this, 'Metric filter', {
-      metricName: 'eventCreationRequests',
-      metricNamespace: 'Actsent',
-      logGroup: apiLambda.logGroup,
-      filterPattern: logs.FilterPattern.exists('eventsCreated'),
-      metricValue: '$.eventsCreated'
-    })
+    // const filter = new logs.MetricFilter(this, 'Metric filter', {
+    //   metricName: 'eventCreationRequests',
+    //   metricNamespace: 'Actsent',
+    //   logGroup: apiLambda.logGroup,
+    //   filterPattern: logs.FilterPattern.exists('eventsCreated'),
+    //   metricValue: '$.eventsCreated'
+    // })
 
     // Outputs
     new cdk.CfnOutput(this, "Frontend URL Output", {
