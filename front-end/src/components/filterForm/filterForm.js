@@ -12,16 +12,23 @@ const FilterForm = (props) => {
     }
 
     return(
+        <div className='App'>
+            <header  className="App-header">
 
+                <h2 >
+<br></br>
+<br></br>
+
+                </h2>
         <form onSubmit={onSubmit}>
-
+{/* 
         <div>
             <label>Date of Event</label>
             <input type={'date'} value={date}></input>
-        </div>
+        </div> */}
         
         <div>
-            <label for='location'>location</label>
+          
             <select id = 'location' value={location} onChange={(e)=>{setLocation(e.target.value)}}>
             <option value="">--Please select a location--</option>
             <option value="London">London</option>
@@ -29,14 +36,21 @@ const FilterForm = (props) => {
             <option value="Birmingham">Birmingham</option>
             </select>
         </div>
+        <br></br>
 
-        <div>
+
+        {/* <div>
             <label>Venue Capacity</label>
             <input type={'number'} value={capacity}></input>
-        </div>
+        </div> */}
 
-        <input type='submit' value='View Selected Venues' />
+        <input type='submit' value='View Venues' />
     </form>
+    <br></br>
+<br></br>
+    </header>
+
+        </div>
     )
 }
 

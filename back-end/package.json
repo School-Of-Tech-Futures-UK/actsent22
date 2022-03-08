@@ -23,7 +23,8 @@
     "@vendia/serverless-express": "^4.5.3",
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "pg-promise": "^10.11.1"
+    "pg-promise": "^10.11.1",
+    "winston": "^3.6.0"
   },
   "description": ""
 }
