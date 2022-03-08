@@ -15,13 +15,16 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  background-image: url("../public/Assets/images/gig.jpg");
+  min-height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -43,7 +46,7 @@
   flex-shrink: 1;
 }
 
-.eventWrapper {
+.venuesWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -94,18 +97,18 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  height:min(60vw,350px);
 }
 
 .eventButtonsFlex{
-  display:flex;
   flex-wrap: wrap;
   padding-top: min(1vw,5px);
   padding-bottom: min(1vw,5px);
 }
 
 #eventButtonFlex{
-  margin-top: 1vw;
-  margin-bottom: 2vw;
+  margin-top: -4vw;
+  margin-bottom: -10vw;
   margin-right: 1vw;
 }
 
@@ -113,11 +116,21 @@
     position: relative;
     margin-bottom:20px;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+    
 }
 
 #eventImage{
-    position: relative;
-    border-radius: 30px;
+  position: relative;
+  border-radius: 30px;
+  height:min(60vw,350px);
+  object-fit: cover;
+  width: min(60vw,1000px);
+  align-items: center;
+  justify-content: center;
+  
 }
 
 #eventReview{
@@ -200,3 +213,31 @@
   bottom: 0;
   left: 0
 }
+
+
+#eventTicketFlex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: min(80vw, 800px);
+  margin:auto;
+  margin-top:8vw;
+  height:275px;
+  margin-bottom: 8vw;
+}
+
+@media only screen and (min-width: 800px) {
+#eventTicketInput{
+  flex-grow:1;
+  flex-shrink:1;
+  /* flex-basis:min(60vw, 600px); */
+  background: linear-gradient(90deg ,#FFEB32, #FF7800);
+  border-radius: 2vw;
+  padding: 20px;
+  /* width: 100px; */
+  height:550px;
+}
+}
+
+
+

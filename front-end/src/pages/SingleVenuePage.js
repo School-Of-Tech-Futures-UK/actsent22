@@ -101,6 +101,46 @@ const SingleVenuePage = () =>{
             {
                 venueState === undefined ? <p> please wait ..</p> : 
                 <>
+
+{/* <Link type="button" to='/' class="btn btn-primary"> ← Home</Link> */}
+        <div class="eventFlex">
+            <div id="eventHeader">
+                <img id="eventImage" src={venueState.venue_image} class="card-img-top" alt="..." height="250px" />
+                <div id="eventReview">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            
+            </div>
+            <div class="eventCardFlex">
+                <div class="eventDetailsFlex" id="childFlex" >
+                    <div class="card mainDetails">
+                        <div class="card-body">
+                            <h5 class="card-title"> {venueState.venue_name}</h5>
+                            <p class="card-text">{venueState.venue_address} <br /></p>
+                        </div>
+                    </div>
+            
+                    <div class="eventButtonsFlex">
+                        {/* <button type="button" class="btn btn-primary" id="eventButtonFlex"> Book Now </button> */}
+                        <BookBtn  onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
+
+                    {showBookingForm && <BookingForm onBook= {submitRequest} id= {id} />}
+                      
+                    </div>
+                  
+       
+                </div>
+              
+            </div>
+         
+        </div>
+
+
+{/* 
                     <img src={venueState.venue_image} alt={""}/>
                     <h2> {venueState.venue_name} </h2>
                     <h4> {venueState.venue_address}</h4>
@@ -109,7 +149,7 @@ const SingleVenuePage = () =>{
                     <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
 
                     {showBookingForm && <BookingForm onBook= {submitRequest} id= {id} />}
-                    
+                     */}
 
                 </>
             }

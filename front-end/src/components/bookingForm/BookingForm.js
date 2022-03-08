@@ -26,9 +26,9 @@ const BookingForm = (props) =>{
 
   function SubmitButton(){
     if (artistName && eventName && eventDescription && date && artistEmail && genre && status && id && eventImage){
-      return <input type='submit'  value='Request a Booking' />
+      return <input type='submit' class="btn btn-primary" value='Request a Booking' />
     } else {
-      return <input type='submit'  value='Request a Booking' disabled/>
+      return <input type='submit' class="btn btn-primary" value='Request a Booking' disabled/>
     };
   };
  
@@ -58,42 +58,47 @@ const BookingForm = (props) =>{
 
     return (
         
-       <form onSubmit={onSubmit}>
-
-           <div>
-               <label>Artist Name</label>
-               <input type='text'  placeholder="Mozart" 
+<div id="eventTicketFlex">
+			<div id="eventTicketInput">
+			{/* <h3>Your ticket to <strong> {eventData[0].event_name} </strong> </h3>
+			<h5>{eventData[0].artist_name} at {eventData[0].venue_name}</h5> */}
+		
+        
+        <form class="form-group" onSubmit={onSubmit}>
+                    <div>
+              <label>Artist Name</label>
+             <input type='text'  class="form-control input-sm" placeholder="Mozart" 
                 value={artistName} onChange={(e)=> {setArtistName(e.target.value)}}/>
            </div>
 
            <div>
                <label>Artist email</label>
-               <input type='text'  placeholder="mozart@gmail.com" 
+               <input type='text'  class="form-control input-sm" placeholder="mozart@gmail.com" 
                 value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}/>
            </div>
 
            <div>
                <label>Event Name</label>
-               <input type='text'  placeholder="Amadeus" 
+               <input type='text' class="form-control input-sm"  placeholder="Amadeus" 
                 value={eventName} onChange={(e)=> {setEventName(e.target.value)}}/>
            </div>
 
            <div>
                <label>Date</label>
                <input type='date'
-               value={date} min={today} onChange={(e)=> {setDate(e.target.value)}}/>
+               value={date} min={today} class="form-control input-sm" onChange={(e)=> {setDate(e.target.value)}}/>
            </div>
            
            <div>
                <label>Event Description</label>
-               <input type='text' placeholder="great"
+               <input type='text' class="form-control input-sm" placeholder="great"
                value={eventDescription}  onChange={(e)=> {setEventDescription(e.target.value)}} size='10'
                />
            </div>
 
            <div>
-               <label for='genre'>Genre</label>
-               <select id = 'genre' value={genre}  onChange={(e)=> {setGenre(e.target.value)}}>
+               <label for='genre' >Genre</label>
+               <select id = 'genre' value={genre} class="form-control input-sm"  onChange={(e)=> {setGenre(e.target.value)}}>
                 <option value="">--Please select a genre--</option>
                 <option value="hiphop">Hip Hop</option>
                 <option value="rock">Rock</option>
@@ -106,14 +111,20 @@ const BookingForm = (props) =>{
 
            <div>
                <label>Image url</label>
-               <input type='text' placeholder=""
+               <input type='text' class="form-control input-sm" placeholder=""
                value={eventImage} onChange={(e)=> {setEventImage(e.target.value)}}/>
            </div>
 
            <SubmitButton></SubmitButton>
 
-       </form>
+						{/* <div className="message">{message ? <p>{message}</p> : null}</div> */}
+					</form>
+			</div>
 
+		
+		</div>
+
+  
 
        
     )
