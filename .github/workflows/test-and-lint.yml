@@ -14,6 +14,10 @@ jobs:
       run: npm install
       working-directory: front-end
 
+    - name: lint front
+      run: 'npm run lint'
+      working-directory: front-end
+
     - name: test front
       run: npm test
       working-directory: front-end
@@ -22,12 +26,13 @@ jobs:
       run: npm install
       working-directory: back-end
 
+    - name: lint back
+      run: 'npm run lint'
+      working-directory: back-end
+
     - name: test back
       run: npm test
       working-directory: back-end
-    
-    - name: run eslint
-      run: 'eslint . --ext .js,'
 
     - name: run front end
       run: 'npm run build'

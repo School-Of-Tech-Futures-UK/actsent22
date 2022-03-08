@@ -26,7 +26,7 @@ app.post('/api/create_event', (req, res) => {
   const date = req.body.date
   console.log('body:', req.body)
   console.log('atts:', [venueId, date, eventName, eventDescription, eventImage, artistName, artistEmail, genre, status])
-  console.log('db==',db)
+  console.log('db==', db)
   db.query(
     'INSERT INTO event(venue_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ,$9) RETURNING event_id;',
     [venueId, date, eventName, eventDescription, eventImage, artistName, artistEmail, genre, status])
