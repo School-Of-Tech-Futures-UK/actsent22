@@ -8,7 +8,6 @@ const s3deploy = require('aws-cdk-lib/aws-s3-deployment');
 const lambda = require('aws-cdk-lib/aws-lambda');
 const apigw = require('aws-cdk-lib/aws-apigateway');
 const secrets = require('aws-cdk-lib/aws-secretsmanager');
-const rds = require('aws-cdk-lib/aws-rds');
 const ec2 = require('aws-cdk-lib/aws-ec2');
 const cloudwatch = require('aws-cdk-lib/aws-cloudwatch');
 const logs = require('aws-cdk-lib/aws-logs');
@@ -129,20 +128,22 @@ class InfrastructureStack extends cdk.Stack {
       recordName: `${props?.subDomain}.${props?.domainName}`,
     });
 
-    // const metric = new cloudwatch.Metric({
-    //   namespace: 'Actsent',
-    //   metricName: 'eventCreationRequests',
-    //   period: cdk.Duration.hours(1),
-    //   statistic: 'sum'
-    // });
+    const metric = new cloudwatch.Metric({
+      namespace: 'Actsent',
+      metricName: 'eventCreationRequests',
+      period: cdk.Duration.hours(1),
+      statistic: 'sum'
+    });
 
-    // const filter = new logs.MetricFilter(this, 'Metric filter', {
-    //   metricName: 'eventCreationRequests',
-    //   metricNamespace: 'Actsent',
-    //   logGroup: apiLambda.logGroup,
-    //   filterPattern: logs.FilterPattern.exists('eventsCreated'),
-    //   metricValue: '$.eventsCreated'
-    // })
+    const filter = new logs.MetricFilter(this, 'Metric filter', {
+      metricName: 'eventCreationRequests',
+      metricNamespace: 'Actsent',
+      logGroup: apiLambda.logGroup,
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.exists('eventsCreated')
+      ),
+      metricValue: '$.eventsCreated'
+    })
 
     // Outputs
     new cdk.CfnOutput(this, "Frontend URL Output", {
