@@ -58,7 +58,7 @@ const BookingForm = (props) =>{
 
     return (
         
-<div id="eventTicketFlex">
+
 			<div id="eventTicketInput">
 			{/* <h3>Your ticket to <strong> {eventData[0].event_name} </strong> </h3>
 			<h5>{eventData[0].artist_name} at {eventData[0].venue_name}</h5> */}
@@ -122,7 +122,7 @@ const BookingForm = (props) =>{
 			</div>
 
 		
-		</div>
+	
 
   
 
