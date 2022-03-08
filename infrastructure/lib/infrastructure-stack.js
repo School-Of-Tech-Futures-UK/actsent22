@@ -140,7 +140,7 @@ class InfrastructureStack extends cdk.Stack {
       metricNamespace: 'Actsent',
       logGroup: apiLambda.logGroup,
       filterPattern: logs.FilterPattern.any(
-        logs.FilterPattern.exists('eventsCreated')
+        logs.FilterPattern.exists('$.eventsCreated')
       ),
       metricValue: '$.eventsCreated'
     })
