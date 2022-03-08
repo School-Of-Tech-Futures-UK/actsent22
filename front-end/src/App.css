@@ -107,8 +107,8 @@
 }
 
 #eventButtonFlex{
-  margin-top: -4vw;
-  margin-bottom: -10vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
   margin-right: 1vw;
 }
 
@@ -236,8 +236,22 @@
   padding: 20px;
   /* width: 100px; */
   height:550px;
+}}
+
+@media only screen and (min-width: 800px) {
+  #eventSearch{
+    flex-grow:1;
+    flex-shrink:1;
+    /* flex-basis:min(60vw, 600px); */
+    background: linear-gradient(90deg ,#FFEB32, #FF7800);
+    border-radius: 2vw;
+    padding: 20px;
+    width: 70%;
+    height:250px;
+  }
+
 }
-}
+
 
 
 
