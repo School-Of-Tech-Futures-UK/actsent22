@@ -128,14 +128,14 @@ class InfrastructureStack extends cdk.Stack {
       recordName: `${props?.subDomain}.${props?.domainName}`,
     });
 
-    const metric = new cloudwatch.Metric({
-      namespace: 'Actsent',
-      metricName: 'eventCreationRequests',
-      period: cdk.Duration.hours(1),
-      statistic: 'sum'
-    });
+    // const metric = new cloudwatch.Metric({
+    //   namespace: 'Actsent',
+    //   metricName: 'eventCreationRequests',
+    //   period: cdk.Duration.hours(1),
+    //   statistic: 'sum'
+    // });
 
-    const filter = new logs.MetricFilter(this, 'Metric filter', {
+    const eventsCreated = new logs.MetricFilter(this, 'Events Created Filter', {
       metricName: 'eventCreationRequests',
       metricNamespace: 'Actsent',
       logGroup: apiLambda.logGroup,
@@ -144,6 +144,26 @@ class InfrastructureStack extends cdk.Stack {
       ),
       metricValue: '$.eventsCreated'
     })
+
+    const eventsConfirmed = new logs.MetricFilter(this, 'EventsConfirmed', {
+      metricName: 'eventsConfirmed',
+      metricNamespace: 'Actsent',
+      logGroup: apiLambda.logGroup,
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.exists('$.eventsConfirmed')
+      ),
+      metricValue: '$.eventsConfirmed'
+    })
+
+    const eventsDenied = new logs.MetricFilter(this, 'EventsDenied', {
+      metricName: 'eventsDenied',
+      metricNamespace: 'Actsent',
+      logGroup: apiLambda.logGroup,
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.exists('$.eventsDenied')
+      ),
+      metricValue: '$.eventsDenied'
+    })    
 
     // Outputs
     new cdk.CfnOutput(this, "Frontend URL Output", {
