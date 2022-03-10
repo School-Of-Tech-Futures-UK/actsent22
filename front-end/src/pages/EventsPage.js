@@ -44,7 +44,7 @@ const SearchEventsForm = (props) =>{
 					<form class="form-group" onSubmit={onSubmit}>
                     <div>
                         <label>Enter your email </label>
-                        <input type='text' class="form-control input-sm" placeholder="1" 
+                        <input type='text' class="form-control input-sm" placeholder="johnsmith@email.com" 
                         value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}
                         />
                     </div>
