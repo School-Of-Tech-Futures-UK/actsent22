@@ -162,7 +162,7 @@ class InfrastructureStack extends cdk.Stack {
     })    
 
     const dashboard = new cloudwatch.Dashboard(this, 'Actsent Dashboard', {
-      dashboardName: 'Actsent Events Dashboard',
+      dashboardName: 'ActsentEventsDashboard',
       widgets: [
         [
           new cloudwatch.GraphWidget({
