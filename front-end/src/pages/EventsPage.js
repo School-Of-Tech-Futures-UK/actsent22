@@ -40,6 +40,7 @@ const SearchEventsForm = (props) =>{
             <> 
             <div class= "eventFlex">
             <div class="eventTicketInput">
+                <h4> To check the status of your current events, enter your email below: </h4>
 					<form class="form-group" onSubmit={onSubmit}>
                     <div>
                         <label>Enter your email </label>

@@ -68,14 +68,14 @@ const SingleVenuePage = () =>{
         })
 
         const data = response.text()
-        console.log(data)
+        // console.log(data)
     }
       
     const submitRequest = (newBookingRequest) =>{
 
-        console.log(newBookingRequest)
-        console.log(parseInt(id))
-        console.log(id)
+        // console.log(newBookingRequest)
+        // console.log(parseInt(id))
+        // console.log(id)
 
         sendBookingRequest(newBookingRequest)
     
@@ -119,8 +119,11 @@ const SingleVenuePage = () =>{
                 <div class="eventDetailsFlex" id="childFlex" >
                     <div class="card mainDetails">
                         <div class="card-body">
-                            <h5 class="card-title"> {venueState.venue_name}</h5>
-                            <p class="card-text">{venueState.venue_address} <br /></p>
+                            <h2 class="card-title"> 🏠 {venueState.venue_name}</h2>
+                            <br></br>
+                            <h5 class="card-text">Address: {venueState.venue_address} <br /></h5>
+                            <h5 class="card-text">Capacity: {venueState.venue_capacity} <br /></h5>
+                            <h5 class="card-text">Venue owner email: {venueState.venue_owner_email} <br /></h5>
                         </div>
                     </div>
             

@@ -10,22 +10,23 @@ const SplashPage = () => {
     }
 
     const onFilter = (location) => {
+        
         history.push(`/venues/location${location}`)
     }
 
     return (
         <>
             <div class="heroHeader">
-                <img id="heroImage" src="./Assets/images/actsentlogo.png" alt="..." />
+                <img id="heroImage" src="./Assets/images/actsentlogo.png" alt="ActSent - Part of GigStr" />
                 <br />
                 <br />
                 <p id="heroSubtitle"> Find the perfect venue for your events</p>
             </div>
             <div>
                
-                <FilterForm onFilter={onFilter}></FilterForm>
+                <FilterForm onFilter={onFilter} allvenues={allvenues}></FilterForm>
             </div>
-            <Footer></Footer>
+            
         </>
 
 
