@@ -26,7 +26,7 @@ const SplashPage = () => {
                
                 <FilterForm onFilter={onFilter} allvenues={allvenues}></FilterForm>
             </div>
-            <Footer></Footer>
+            
         </>
 
 

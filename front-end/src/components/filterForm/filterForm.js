@@ -31,7 +31,7 @@ const FilterForm = (props) => {
 
                     <div>
                     
-                        <select id = 'location' value={location} onChange={(e)=>{setLocation(e.target.value)}}>
+                        <select id = 'location' value={location} class="form-control input-sm"onChange={(e)=>{setLocation(e.target.value)}}>
                             <option value="All Venues">All Venues</option>
                             <option value="London">London</option>
                             <option value="Manchester">Manchester</option>
@@ -47,7 +47,7 @@ const FilterForm = (props) => {
                         </div> 
                     */}
 
-                    <input type='submit' value='View Venues' />
+                    <input type='submit' class="btn btn-primary" style={{backgroundColor:"grey"}}  id="eventButtonFlex" value='View Venues' />
                 </form>
                 <br></br>
                 <br></br>

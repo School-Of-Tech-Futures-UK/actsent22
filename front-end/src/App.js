@@ -10,7 +10,7 @@ import SingleVenuePage from './pages/SingleVenuePage';
 import EventsPage from './pages/EventsPage';
 import SearchEventsForm from './pages/EventsPage';
 import SplashPage from './pages/SplashPage';
-
+import Footer from './components/footer';
 import { useEffect, useState} from 'react'
 import {
   BrowserRouter ,
@@ -58,14 +58,16 @@ const NavBar = () => {
   return (
     // <label>{pathname}</label>
     <>
-      <nav class="navbar navbar-dark bg-dark">
+    <div class="sticky-top" >
+      <nav  class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="/"><b> ActSent </b>| Part of GigStr</a>
-          <NavLink class="navbar-brand" to="/venues"> Venues </NavLink>
+
           <NavLink class="navbar-brand" to="/events"> Events </NavLink>
          
         </div>
       </nav>
+      </div>
     </>
   );
 
@@ -98,8 +100,10 @@ function App()  {
     <>
       <BrowserRouter>
         <NavBar />
+      
         <Routes />
       </BrowserRouter>
+      <Footer></Footer>
     </>
   )
   
