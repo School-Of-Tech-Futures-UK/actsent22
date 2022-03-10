@@ -128,21 +128,77 @@ class InfrastructureStack extends cdk.Stack {
       recordName: `${props?.subDomain}.${props?.domainName}`,
     });
 
-    const metric = new cloudwatch.Metric({
-      namespace: 'Actsent',
-      metricName: 'eventCreationRequests',
-      period: cdk.Duration.hours(1),
-      statistic: 'sum'
-    });
-
-    const filter = new logs.MetricFilter(this, 'Metric filter', {
+    const eventsCreated = new logs.MetricFilter(this, 'Events Created Filter', {
       metricName: 'eventCreationRequests',
       metricNamespace: 'Actsent',
       logGroup: apiLambda.logGroup,
       filterPattern: logs.FilterPattern.any(
         logs.FilterPattern.exists('$.eventsCreated')
       ),
+      defaultValue: 0,
       metricValue: '$.eventsCreated'
+    })
+
+    const eventsConfirmed = new logs.MetricFilter(this, 'EventsConfirmed', {
+      metricName: 'eventsConfirmed',
+      metricNamespace: 'Actsent',
+      logGroup: apiLambda.logGroup,
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.exists('$.eventsConfirmed')
+      ),
+      defaultValue: 0,
+      metricValue: '$.eventsConfirmed'
+    })
+
+    const eventsDenied = new logs.MetricFilter(this, 'EventsDenied', {
+      metricName: 'eventsDenied',
+      metricNamespace: 'Actsent',
+      logGroup: apiLambda.logGroup,
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.exists('$.eventsDenied')
+      ),
+      defaultValue: 0,
+      metricValue: '$.eventsDenied'
+    })    
+
+    const dashboard = cloudwatch.Dashboard(this, 'Actsent Dashboard', {
+      dashboardName: 'Actsent Events Dashboard',
+      widgets: [
+        [
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsCreated.metric()],
+            title: 'Events Created'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsConfirmed.metric()],
+            title: 'Events Confirmed'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsDenied.metric()],
+            title: 'Events Denied'
+          }),
+        ],
+        [
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [apiGateway.metricCount()],
+            title: 'N. of API Requests'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [apiGateway.metricServerError()],
+            title: 'N. of Server Errors'
+          })
+        ]
+      ]
     })
 
     // Outputs
