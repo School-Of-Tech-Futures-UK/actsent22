@@ -128,13 +128,6 @@ class InfrastructureStack extends cdk.Stack {
       recordName: `${props?.subDomain}.${props?.domainName}`,
     });
 
-    // const metric = new cloudwatch.Metric({
-    //   namespace: 'Actsent',
-    //   metricName: 'eventCreationRequests',
-    //   period: cdk.Duration.hours(1),
-    //   statistic: 'sum'
-    // });
-
     const eventsCreated = new logs.MetricFilter(this, 'Events Created Filter', {
       metricName: 'eventCreationRequests',
       metricNamespace: 'Actsent',
@@ -164,6 +157,46 @@ class InfrastructureStack extends cdk.Stack {
       ),
       metricValue: '$.eventsDenied'
     })    
+
+    const dashboard = cloudwatch.Dashboard(this, 'Actsent Dashboard', {
+      dashboardName: 'Actsent Events Dashboard',
+      widgets: [
+        [
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsCreated.metric()],
+            title: 'Events Created'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsConfirmed.metric()],
+            title: 'Events Confirmed'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [eventsDenied.metric()],
+            title: 'Events Denied'
+          }),
+        ],
+        [
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [apiGateway.metricCount()],
+            title: 'N. of API Requests'
+          }),
+          new cloudwatch.GraphWidget({
+            statistic: 'sum',
+            period: cdk.Duration.hours(1),
+            left: [apiGateway.metricServerError()],
+            title: 'N. of Server Errors'
+          })
+        ]
+      ]
+    })
 
     // Outputs
     new cdk.CfnOutput(this, "Frontend URL Output", {
