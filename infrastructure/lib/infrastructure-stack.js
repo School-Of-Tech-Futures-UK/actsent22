@@ -135,6 +135,7 @@ class InfrastructureStack extends cdk.Stack {
       filterPattern: logs.FilterPattern.any(
         logs.FilterPattern.exists('$.eventsCreated')
       ),
+      defaultValue: 0,
       metricValue: '$.eventsCreated'
     })
 
@@ -145,6 +146,7 @@ class InfrastructureStack extends cdk.Stack {
       filterPattern: logs.FilterPattern.any(
         logs.FilterPattern.exists('$.eventsConfirmed')
       ),
+      defaultValue: 0,
       metricValue: '$.eventsConfirmed'
     })
 
@@ -155,6 +157,7 @@ class InfrastructureStack extends cdk.Stack {
       filterPattern: logs.FilterPattern.any(
         logs.FilterPattern.exists('$.eventsDenied')
       ),
+      defaultValue: 0,
       metricValue: '$.eventsDenied'
     })    
 
