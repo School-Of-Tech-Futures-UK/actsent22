@@ -161,7 +161,7 @@ class InfrastructureStack extends cdk.Stack {
       metricValue: '$.eventsDenied'
     })    
 
-    const dashboard = cloudwatch.Dashboard(this, 'Actsent Dashboard', {
+    const dashboard = new cloudwatch.Dashboard(this, 'Actsent Dashboard', {
       dashboardName: 'Actsent Events Dashboard',
       widgets: [
         [
