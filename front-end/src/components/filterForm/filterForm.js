@@ -30,6 +30,7 @@ const FilterForm = (props) => {
                     */}
 
                     <div>
+                       <h2>Select a location below:</h2> 
                     
                         <select id = 'location' value={location} class="form-control input-sm"onChange={(e)=>{setLocation(e.target.value)}}>
                             <option value="All Venues">All Venues</option>
