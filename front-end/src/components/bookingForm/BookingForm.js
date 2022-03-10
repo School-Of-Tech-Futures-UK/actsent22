@@ -46,13 +46,8 @@ const BookingForm = (props) =>{
         }
 
         props.onBook({artistName, date, id, eventDescription, genre, artistEmail, eventName, status, eventImage})
-    
-        //setArtistName("")
-        //setDate("")
-        //setEventName("")
-        //setEventDescription("")
-        //setArtistEmail("")
-        //setGenre("") 
+        alert('Your request has been successfully submitted!')
+
         
     }
 

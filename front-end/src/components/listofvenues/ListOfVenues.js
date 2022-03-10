@@ -15,11 +15,13 @@ const ListOfVenues =(props) =>{
 
     let filtered_venues = listState
     console.log("location is, ", location)
-    if (location) {
+    if (location!=="All Venues"){
         filtered_venues = listState.filter(venue => {
             return venue.venue_address.includes(location)
         })
     }
+  
+    
 
     return (
         <>
@@ -28,7 +30,7 @@ const ListOfVenues =(props) =>{
                 filtered_venues.map(venue => {
                     return         <div class="flexWrapper">
                     <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
-                            location= {venue.venue_address} description= {venue.venue_description} image= {venue.venue_image}/>
+                            location= {venue.venue_address} image= {venue.venue_image}/>
                         </div>
                 })
             }

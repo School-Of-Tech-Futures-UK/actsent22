@@ -21,7 +21,7 @@ const VenueListItem = (props) =>{
           <div class="card-body" id="cardFlex">
             <h5 class="card-title"><strong>{props.name}</strong></h5>
             <p class="card-text">{props.location} <br></br>
-            {props.description}
+
             
             </p>
 

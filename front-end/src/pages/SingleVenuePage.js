@@ -68,14 +68,14 @@ const SingleVenuePage = () =>{
         })
 
         const data = response.text()
-        console.log(data)
+        // console.log(data)
     }
       
     const submitRequest = (newBookingRequest) =>{
 
-        console.log(newBookingRequest)
-        console.log(parseInt(id))
-        console.log(id)
+        // console.log(newBookingRequest)
+        // console.log(parseInt(id))
+        // console.log(id)
 
         sendBookingRequest(newBookingRequest)
     
