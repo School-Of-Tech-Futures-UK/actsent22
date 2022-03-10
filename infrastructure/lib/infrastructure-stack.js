@@ -166,19 +166,19 @@ class InfrastructureStack extends cdk.Stack {
       widgets: [
         [
           new cloudwatch.GraphWidget({
-            statistic: 'sum',
+            statistic: 'Sum',
             period: cdk.Duration.hours(1),
             left: [eventsCreated.metric()],
             title: 'Events Created'
           }),
           new cloudwatch.GraphWidget({
-            statistic: 'sum',
+            statistic: 'Sum',
             period: cdk.Duration.hours(1),
             left: [eventsConfirmed.metric()],
             title: 'Events Confirmed'
           }),
           new cloudwatch.GraphWidget({
-            statistic: 'sum',
+            statistic: 'Sum',
             period: cdk.Duration.hours(1),
             left: [eventsDenied.metric()],
             title: 'Events Denied'
@@ -186,13 +186,13 @@ class InfrastructureStack extends cdk.Stack {
         ],
         [
           new cloudwatch.GraphWidget({
-            statistic: 'sum',
+            statistic: 'Sum',
             period: cdk.Duration.hours(1),
             left: [apiGateway.metricCount()],
             title: 'N. of API Requests'
           }),
           new cloudwatch.GraphWidget({
-            statistic: 'sum',
+            statistic: 'Sum',
             period: cdk.Duration.hours(1),
             left: [apiGateway.metricServerError()],
             title: 'N. of Server Errors'
